@@ -1,9 +1,8 @@
-import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
+import {PostComponent} from './App';
 
 const rootElement = document.getElementById('root') as HTMLElement;
 
 const root = createRoot(rootElement);
 
-root.render(<App />);
+root.render(<PostComponent></PostComponent>);
