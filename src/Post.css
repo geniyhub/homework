@@ -1,0 +1,61 @@
+.post-div{
+    margin-bottom: 15px;
+    margin-left: 10px;
+    width: 30%;
+    background-color: #363535;
+    border-radius: 13px;
+}
+
+.image{
+    width: 225px;
+    height: 225px;
+    border-radius: 15px;
+}
+
+.description{
+    color: white;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.author{
+    color: white;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.title{
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.likes-div{
+    margin-left: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.button1{
+    margin-left: 10px;
+    font-size: 10px;
+    background-color: #858080;
+    border-radius: 15px;
+    width: 6%;
+    height: 2.5%;
+}
+
+.button2{
+    font-size: 10px;
+    background-color: #858080;
+    border-radius: 15px;
+    width: 6.05%;
+    height: 2.5%;
+}
+
+.svg{
+    height: 24px;
+    width: 24px;
+}

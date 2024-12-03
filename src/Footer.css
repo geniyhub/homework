@@ -1,0 +1,22 @@
+footer{
+
+    background-color: #4C4444;;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Footer{
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ImageLogo-footer{
+    width: 95px;
+    height: 88px;
+}
