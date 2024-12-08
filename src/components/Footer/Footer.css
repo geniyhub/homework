@@ -1,5 +1,9 @@
-footer{
+.footer-body{
+    flex-grow: 1;
+    margin-top: auto;
+}
 
+footer{
     background-color: #4C4444;;
     height: 85px;
     display: flex;

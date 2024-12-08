@@ -2,7 +2,7 @@ import "./Footer.css"
 
 export function Footer(){
     return (
-        <div>
+        <div className="footer-body">
                 <footer>
                     <div className="Footer">
                         <div className="ImageLogoDiv-footer">

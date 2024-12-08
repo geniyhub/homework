@@ -1,0 +1,12 @@
+.selectionMenu{
+    border-radius: 10px;
+    margin-left: 10px;
+    background-color: gray;
+}
+
+.selectionMenu-selected{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-left: 10px;
+    background-color: gray;
+}
