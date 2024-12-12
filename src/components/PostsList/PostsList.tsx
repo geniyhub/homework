@@ -8,7 +8,7 @@ const posts = [
     title: 'Пост 1',
     description: 'бубубубубубуббубубубубубубубубубубубууббу',
     author: 'автор1',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqkG1nCDrabc6rqG00JWTaduqgqSweFsMRPI79OYdyZ8jDYOLq9i2wV6-oMHlD3C3cnFs&usqp=CAU',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqkG1nCDrabc6rqG00JWTaduqgqSweFsMRPI79OYdyZ8jDYOLq9i2wV6-oMHlD3C3cnFs&usqp=CAU',
     category: 'skibidi'
   },
 
@@ -17,7 +17,7 @@ const posts = [
     title: 'Пост 2',
     description: 'алалалаллалалалалалалалалаллалала',
     author: 'автор2',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrm1spEJgodSruBCQXUu27HVkvK8zzY1LB1FoaplAbjtSy-EJMxEJxO7rFjXUcUJ1nBag&usqp=CAU',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrm1spEJgodSruBCQXUu27HVkvK8zzY1LB1FoaplAbjtSy-EJMxEJxO7rFjXUcUJ1nBag&usqp=CAU',
     category: 'rizz'
   },
 
@@ -26,7 +26,7 @@ const posts = [
     title: 'Пост 3',
     description: 'жужужужужужужужужжужужужужужужужуж',
     author: 'автор3',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Ylahj3RUvSeAbtMCMsUI1nj9iX4Isp4E_Jq0trNvEVeDe7fVFC88ToS7Wbtfe9I8Oe8&usqp=CAU',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Ylahj3RUvSeAbtMCMsUI1nj9iX4Isp4E_Jq0trNvEVeDe7fVFC88ToS7Wbtfe9I8Oe8&usqp=CAU',
     category: 'biba'
   },
 
@@ -35,20 +35,22 @@ const posts = [
     title: 'Пост 4',
     description: 'тутутутутутутуттутутутутутутууттутуту',
     author: 'автор4',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReVu3DVrjoMaqWe9yqbWHYhRPc6WZMdQaQLBOPyKuiYIW8ZCne9tPdvIA2htZ49TfQq4k&usqp=CAU',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReVu3DVrjoMaqWe9yqbWHYhRPc6WZMdQaQLBOPyKuiYIW8ZCne9tPdvIA2htZ49TfQq4k&usqp=CAU',
     category: 'gigachad'
-  }
+  },
 ]
 
 export function PostsList(){
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [filteredPosts, setFilteredPosts] = useState(posts);
-  const [selectClass, setSelectClass] = useState('selectionMenu')
-  const toggleClass = () => {
-    setSelectClass((prevClass) =>
-      prevClass === "selectionMenu" ? "selectionMenu-selected" : "selectionMenu"
-    );
-  };
+  useEffect(()=>{
+    async function fetchPosts(){
+      const response = await fetch('https://fakestoreapi.com/products')
+      const posts = await response.json()
+      setFilteredPosts(posts)
+    }
+    fetchPosts()
+  },[])
 
   useEffect(() => {
     if (selectedCategory === 'all'){
@@ -59,15 +61,13 @@ export function PostsList(){
       })
       setFilteredPosts(filtered)
     }
-  })
+  },[selectedCategory])
     return (
            <div className='posts-list'>
-                <select className={selectClass} onChange={(event) =>{
+                <select className="selectionMenu" onChange={(event) =>{
                   const selectedValue = event.target.value
                   setSelectedCategory(selectedValue)
-                }}
-                onClick={toggleClass}
-                >
+                }}>
                     <option className='optin-all' value='all'>Все категории</option>
                     <option value='skibidi'>Скибиды</option>
                     <option value='rizz'>Ризз</option>
@@ -79,8 +79,9 @@ export function PostsList(){
                 return <Post
                             title={post.title}
                             description={post.description}
-                            img={post.img}
+                            img={post.image}
                             author={post.author}
+                            id={post.id}
                             key={post.id}></Post>
               })}
            </div>

@@ -1,11 +1,7 @@
-.footer-body{
-    flex-grow: 1;
-    margin-top: auto;
-}
-
 footer{
     background-color: #4C4444;;
     height: 85px;
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,7 +10,6 @@ footer{
 .Footer{
     height: 100%;
     width: 100%;
-    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
