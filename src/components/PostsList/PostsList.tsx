@@ -19,7 +19,7 @@ export function PostsList(){
       })
       setFilteredPosts(filtered)
     }
-  },[selectedCategory])
+  },[selectedCategory, posts])
     return (
            <div className='posts-list'>
                 <select className="selectionMenu" onChange={(event) =>{
