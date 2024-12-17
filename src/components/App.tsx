@@ -5,7 +5,7 @@ import{ Footer } from "./Footer/Footer";
 import "./App.css"
 import AudioPlayer from "./AudioPlayer";
 import { Layout } from "./Layout/Layout";
-import { PostPage } from "./PostPage/PostPage";
+import  { PostPage }  from "./PostPage/PostPage";
 import {
   BrowserRouter,
   Routes,
