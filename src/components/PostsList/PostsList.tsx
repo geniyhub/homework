@@ -1,12 +1,13 @@
 import { Post } from '../Post/Post';
 import {useState, useEffect } from "react"
 import { usePosts } from "../../hooks/usePosts"
+import { TailSpin } from "react-loader-spinner"
 import './PostList.css'
 
 
 
 export function PostsList(){
-  const {posts} = usePosts();
+  const {posts, loading, error} = usePosts();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [filteredPosts, setFilteredPosts] = useState(posts);
 
@@ -33,7 +34,24 @@ export function PostsList(){
                     <option value='gigachad'>Гигачад</option>
 
                 </select>
-              {filteredPosts.map((post)=>{
+              {loading === true ? <div className="LoadRing">
+                <TailSpin
+                        visible={true}
+                        height="100"
+                        width="100"
+                        color="grey"
+                        ariaLabel="tail-spin-loading"
+                        radius="1"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        /></div> : 
+                        
+                        error !== "" ? <div>
+                {error} 
+            </div> : 
+
+            <div className='PostsDiv'>
+            {filteredPosts.map((post)=>{
                 return <Post
                             title={post.title}
                             description={post.description}
@@ -42,6 +60,7 @@ export function PostsList(){
                             id={post.id}
                             key={post.id}></Post>
               })}
+              </div>}
            </div>
     )
 }
