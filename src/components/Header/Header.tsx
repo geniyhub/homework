@@ -7,9 +7,11 @@ export function Header(){
                 <header>
                     <div className="Header">
                         <Link to="/">Main</Link>
-                        <div className="ImageLogoDiv">
-                            <img className="ImageLogo" src="https://i.imgur.com/rfQ8oxT.png"/>
-                        </div>
+                        <Link to="/likedposts">
+                            <div className="ImageLogoDiv">
+                                <img className="ImageLogo" src="https://i.imgur.com/rfQ8oxT.png"/>
+                            </div>
+                        </Link>
                         <Link to="/posts">Posts</Link>
                     </div>
                 </header>               

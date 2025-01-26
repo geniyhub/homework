@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import "./Post.css"
 
 
-interface IPostProps{
+export interface IPostProps{
     title : string,
     description : string,
     img : string,
@@ -15,16 +15,6 @@ export function Post(props: IPostProps){
     const [likes, setLikes] = useState(999)
     const [isLiked, setIsLiked] = useState(false)
     const [isDisliked, setIsDisliked] = useState(false)
-    function addLike(){
-        setLikes(likes + 1)
-        setIsLiked(true)
-        setIsDisliked(false)
-    }
-    function removeLike(){
-        setLikes(likes - 1)
-        setIsDisliked(true)
-        setIsLiked(false)
-    }
 
     return(
         <div className="post-div">
@@ -45,12 +35,6 @@ export function Post(props: IPostProps){
                     </span>
                 </div>
             </Link>
-                <button className="button1" onClick={removeLike} disabled={isDisliked}>
-                    -
-                </button>
-                <button className="button2" onClick={addLike} disabled={isLiked}>
-                    +
-                </button>
         </div>
     )
 }
