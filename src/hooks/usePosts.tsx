@@ -1,5 +1,19 @@
 import { useState, useEffect } from "react";
-import { IPost } from "./usePostById";
+
+export interface IPost{
+  id: number;
+  title: string;
+  price: number;
+  category: string;
+  description: string;
+  author: string;
+  image: string;
+  Comment: {
+      id: number;
+      title: string;
+      content: string;
+  }
+}
 
 export function usePosts() {
   // для типизации useState мы после названия хука пишем угловые скибички и в них указываем тип(интерфейс например) и пустой масив
@@ -10,9 +24,14 @@ export function usePosts() {
     async function fetchPosts() {
       try {
         setLoading(true);
-        const response = await fetch("https://fakestoreapi.com/products");
-        const postsData = await response.json();
-        setPosts(postsData);
+        const response = await fetch("http://localhost:7000/api/post/all");
+        const result = await response.json();
+
+        if (result.status === "ok"){
+          setPosts(result.data);
+        } else {
+          setError(result.message);
+        }
       } catch (error) {
         console.log(error);
         if (error instanceof Error) {

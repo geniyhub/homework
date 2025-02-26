@@ -1,25 +1,41 @@
 import { useState, useEffect } from "react"
+import { IPost } from "./usePosts";
 
-export interface IPost{
-    id: number;
-    title: string;
-    price: number;
-    category: string;
-    description: string;
-    author: string;
-    image: string;
-}
 
-export function usePostById(id: number){
-    const [post , setPost] = useState<IPost>()
-    
+
+export function usePostById(id: number | undefined) {
+    const [post, setPost] = useState<IPost>();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+
     useEffect(() => {
-        async function fetchProduct() {
-            const response = await fetch(`https://fakestoreapi.com/products/${id}`)
-            const postData = await response.json()
-            setPost(postData)
+        if (!id) {
+            return;
         }
-        fetchProduct()
-    }, [id])
-    return {post: post}
+
+        async function fetchPost() {
+            setLoading(true);
+            try {
+                const response = await fetch(`http://localhost:7000/api/post/${id}`);
+                const result = await response.json();
+
+                if (result.status === "ok") {
+                    setPost(result.data);
+                } else {
+                    setError(result.message);
+                }
+            } catch (error) {
+                console.log(error);
+                if (error instanceof Error) {
+                    setError(error.message);
+                }
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchPost();
+    }, [id]);
+
+    return { post, loading, error };
 }
