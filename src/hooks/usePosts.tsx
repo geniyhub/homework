@@ -8,6 +8,7 @@ export interface IPost{
   description: string;
   author: string;
   image: string;
+//   здесь можно использовать тип IComment из хука
   Comment: {
       id: number;
       title: string;

@@ -31,6 +31,7 @@ export function PostsList() {
         <option className="optin-all" value="all">
           Все категории
         </option>
+        {/* Категории должны братся из запроса к Backend */}
         <option value="skibidi">Скибиды</option>
         <option value="rizz">Ризз</option>
         <option value="biba">Биба</option>
@@ -56,6 +57,7 @@ export function PostsList() {
           {filteredPosts.map((post) => {
             return (
               <Post
+            //   post={post} исправления с учетом комментария PostCard
                 title={post.title}
                 description={post.description}
                 img={post.image}

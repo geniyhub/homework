@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { likeContext } from "../App"
 
 export function LikedPostsPage(){
+    // likedPosts
     const { veryCoolMassive } = useContext(likeContext)
     return(
         <div>

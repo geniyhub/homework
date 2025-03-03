@@ -2,7 +2,11 @@ import { useState } from "react"
 import {Link} from "react-router-dom"
 import "./Post.css"
 
-
+// Пропсы для карточки поста очень схожи с самим постом,
+// Лучше будет упростить это используя тип IPost
+// interface IPostProps {
+//     post: IPost
+// }
 export interface IPostProps{
     title : string,
     description : string,
@@ -13,6 +17,7 @@ export interface IPostProps{
 
 export function Post(props: IPostProps){
     const [likes, setLikes] = useState(999)
+    // Здесь это не используется
     const [isLiked, setIsLiked] = useState(false)
     const [isDisliked, setIsDisliked] = useState(false)
 

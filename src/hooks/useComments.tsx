@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-
+// Типы отличаются с IPost, лучше использовать один интерфейс
 interface IComment {
     title: string;
     id: number;

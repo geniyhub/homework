@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { IPost } from "./usePosts";
+// Лишние пустые строки
 
 
 

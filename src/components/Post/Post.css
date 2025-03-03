@@ -49,7 +49,7 @@
     display: flex;
     gap: 8px;
 }
-
+/* button1? */
 .button1{
     margin-left: 10px;
     font-size: 10px;
@@ -58,6 +58,7 @@
     width: 30px;
     height: 25px;
 }
+/* button2? */
 
 .button2{
     font-size: 10px;

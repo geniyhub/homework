@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import "./Login.css"
-
+// Лучше назвать ILoginForm
 interface IForm {
 	email: string;
 	password: string;
@@ -36,6 +36,7 @@ export function Login() {
 							},
 						})}
 					/>
+                    {/* Сообщение об ошибке лучше вынести за label */}
 					<p>{formState.errors.email?.message}</p>
 				</label>
 				<label className="login-password-label">
@@ -58,6 +59,7 @@ export function Login() {
 							},
 						})}
 					/>
+                    {/* Сообщение об ошибке лучше вынести за label */}
 					<p>{formState.errors.password?.message}</p>
 				</label>
 				<button className="login-submit-button" type="submit">Submit</button>

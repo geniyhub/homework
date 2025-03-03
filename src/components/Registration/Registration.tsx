@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import "./Registration.css"
 
+// Лучше назвать IRegistrationForm
 interface IForm {
     username: string
 	email: string;
@@ -60,6 +61,7 @@ export function Registration(){
                                 },
                             })}
                         />
+                        {/* тоже самое, что и в Login */}
                         <p>{formState.errors.email?.message}</p>
                     </label>
                     <label className="register-password-label">

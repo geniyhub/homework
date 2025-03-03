@@ -1,3 +1,4 @@
+// Импорт React не используется, нужно убрать
 import React, { useEffect, useRef } from "react";
 
 const AudioPlayer = () => {
@@ -26,5 +27,5 @@ const AudioPlayer = () => {
     </div>
   );
 };
-
+// Выбери один стиль экспорта компонентов, где то export, где то export default
 export default AudioPlayer;
