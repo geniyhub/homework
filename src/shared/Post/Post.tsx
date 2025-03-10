@@ -21,7 +21,7 @@ export function Post(props: IPostProps){
             <Link to={`/post/${props.id}`}>
                 <h1 className="title">{props.title}</h1>
                 <div className="image-div">
-                    <img className="image" src={props.img}/>
+                    <img className="post-image" src={props.img}/>
                 </div>
                 <p className="description">{props.description}</p>
                 <p className="author">Author: {props.author}</p>

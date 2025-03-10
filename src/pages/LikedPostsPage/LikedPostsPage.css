@@ -1,0 +1,47 @@
+.liked-post-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    height: 400px;
+    width: 400px;
+    background-color: #363535;
+    border-radius: 13px;
+}
+
+.liked-image{
+    width: 300px;
+    height: 250px;
+    border-radius: 20px;
+}
+
+.liked-image-div{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.liked-description{
+    color: white;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.liked-author{
+    color: white;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.liked-title{
+    font-size: 40px;
+    color: #ffffff;
+    overflow: hidden;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}

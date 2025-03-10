@@ -1,15 +1,15 @@
 import { useParams } from "react-router-dom";
 import { usePostById} from "../../hooks/usePostById";
-import { likeContext } from "../App";
+import { useLikedContext } from "../../context/LikedContext"
 import { useContext } from "react";
 
-import "./PostPage"
+import "./PostPage.css"
 
 export function PostPage() {
     const { id } = useParams<{ id: string }>();
     const postId = Number(id);
     const{post} = usePostById(postId)
-    const { addPost } = useContext(likeContext) 
+    const { likedPosts, addPost, removePost, isLiked } = useLikedContext()
 
     if (!post) return <div>Loading...</div>;
     function addPosts(Item: any) {
@@ -27,8 +27,11 @@ export function PostPage() {
           <div className="post-buttons">
             <button className="post-button" onClick = {()=>{
                 if (post){
-                    addPost(post)
-                    console.log("aboba")
+                    if (isLiked(post.id)) {
+                        removePost(post.id)
+                    } else {
+                        addPost(post)
+                    }
                 }
             }}> salam </button>
           </div>

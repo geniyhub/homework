@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 import { Main } from "../Main/Main"
 import { Footer } from '../Footer/Footer'
 import { Header } from "../Header/Header"
-import  AudioPlayer from "../AudioPlayer"
+import  AudioPlayer from "../../components/AudioPlayer"
 // 3=====э
 import "./Layout.css"
 import { Outlet } from "react-router-dom"
